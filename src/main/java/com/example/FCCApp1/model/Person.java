@@ -1,7 +1,7 @@
 package com.example.FCCApp1.model;
 
 import java.util.UUID;
-
+//import javax.validation.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Getter;
@@ -11,6 +11,7 @@ import lombok.Getter;
 public class Person {
 
 	private final UUID id;
+	//@NotBlank
 	private final String name;
 	
 	public Person(@JsonProperty("id") UUID id,
