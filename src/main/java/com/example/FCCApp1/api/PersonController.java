@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import com.example.FCCApp1.model.Person;
 import com.example.FCCApp1.service.PersonService;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 @RequestMapping("/api/v1/person")
 @RestController
 public class PersonController {
@@ -22,7 +25,7 @@ public class PersonController {
 	}
 	
 	@PostMapping
-	public void addPerson(@RequestBody Person person) {
+	public void addPerson(@Valid @NotNull @RequestBody Person person) {
 		personService.addPerson(person);
 	}
 	
@@ -44,7 +47,7 @@ public class PersonController {
 
 	@PutMapping(path = "{id}")
 	public void updatePerson(@PathVariable("id") UUID id,
-								 @RequestBody Person personToUpdate){
+								@Valid @NotNull @RequestBody Person personToUpdate){
 		personService.updatePerson(id,personToUpdate);
 	}
 
