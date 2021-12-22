@@ -33,3 +33,28 @@ maven install // creates FCCApp1-0.0.1-SNAPSHOT.jar under target folder
 % java -jar FCCApp1-0.0.1-SNAPSHOT.jar // Command to deploy  app on port 8080 
 
 
+//DOCKER COMMANDS
+
+% docker run --name postgres-spring  -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres:alpine
+
+% docker ps
+
+%docker exec -it 3294df076c81 bin/bash //3294df076c81 is the container ID of postgres
+%psql -U postgres
+%CREATE DATABASE demodb; //creates new db in postgres container
+% \c demodb //to connect to demodb
+
+//DATABASE 
+<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+        
+//DB Migration tools 
+
+<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>8.2.3</version>
+		</dependency>
